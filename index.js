@@ -323,17 +323,45 @@ mySet.delete(8)
 
 //  console.log(averageOfTwo([1,2,3,5,6,7,8], 4))
 
-function maxSubarraySum(arr, num){
-    if(arr.length < num){
-        return null;
-    }
-    let max=0;
-    for(let i=0; i<arr.length; i++){
-       max+=arr[i]
-    }
-    console.log(max)
-}
+// function maxSubarraySum(arr, num){
+//     if(arr.length < num){
+//         return null;
+//     }
+//     let max=0;
+//     for(let i=0; i<arr.length; i++){
+//        max+=arr[i]
+//     }
+//     console.log(max)
+// }
  
    
 
-maxSubarraySum([1,2,3,4,5,6],3)
+// maxSubarraySum([1,2,3,4,5,6],3)
+
+
+function findMiddleCourse(arr){
+
+    let courseObj={};
+  
+
+    let secondIndex=0
+    for(let i=0; i<arr.length; i++){
+      courseObj[arr[i][0]] = arr[i][1]
+    }
+    let secondCourses = Object.values(courseObj)
+    let firstCourses = Object.keys(courseObj)
+     for(let courseKey of firstCourses){
+       if(!secondCourses.includes(courseKey)){
+         console.log(courseKey)
+       }
+  }
+  }
+
+  const prereqs_courses2 = [
+    ["Data Structures", "Algorithms"],
+    ["Algorithms", "Foundations of Computer Science"],
+    ["Foundations of Computer Science", "Logic"]
+  ];
+
+  console.log(findMiddleCourse(prereqs_courses2))
+  
