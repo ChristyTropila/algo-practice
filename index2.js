@@ -17,6 +17,14 @@ prereqs_courses1 = [
 const prereqs_courses3 = [
     ["Data Structures", "Algorithms"]
   ];
+
+  const prereqs_course4=[
+      [
+          ["puppy", "dog"],
+          ["cat", 'kitten'],
+          ["hamster", 'ham']
+      ]
+  ]
   
   
 
@@ -43,10 +51,21 @@ function findCourse(arr){
     let iterator=0
 
    
-  for(let i =0 ; i<arr.length; i++){
-   preReqObj[arr[i][0]] ? preReqObj[arr[i][0]] +=1 : preReqObj[arr[i][0]] =1
-   courseOb[arr[i][1]] ? courseOb[arr[i][1]] +=1 : courseOb[arr[i][1]] =1
-}
+//   for(let i =0 ; i<arr.length; i++){
+//    preReqObj[arr[i][0]] ? preReqObj[arr[i][0]] +=1 : preReqObj[arr[i][0]] =1
+//    courseOb[arr[i][1]] ? courseOb[arr[i][1]] +=1 : courseOb[arr[i][1]] =1
+// }
+
+    arr.forEach((course)=>{
+       let preReq=course[0][0]
+       let singCourse=course[0][1]
+       preReqObj[preReq] ? preReqObj[preReq] += 1 : preReqObj[preReq] = 1
+       courseOb[singCourse] ? courseOb[singCourse] += 1 : courseOb[singCourse] =1
+     })
+
+     console.log(preReqObj)
+     console.log(courseOb)
+
 
   for (var i in preReqObj){
       if(!courseOb.hasOwnProperty(i)){
@@ -67,8 +86,8 @@ function findCourse(arr){
      
     let middleIndex=list.length/2
 
- return  list[Math.floor(middleIndex)] 
+ //return  list[Math.floor(middleIndex)] 
 
 }
 
-console.log(findCourse(prereqs_courses3))
+console.log(findCourse(prereqs_course4))
