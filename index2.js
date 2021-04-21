@@ -57,16 +57,18 @@ function findCourse(arr){
 // }
 
     arr.forEach((course)=>{
-       let preReq=course[0][0]
-       let singCourse=course[0][1]
+       let preReq=course[0]
+       let singCourse=course[1]
        preReqObj[preReq] ? preReqObj[preReq] += 1 : preReqObj[preReq] = 1
        courseOb[singCourse] ? courseOb[singCourse] += 1 : courseOb[singCourse] =1
      })
 
-     console.log(preReqObj)
-     console.log(courseOb)
+    //  console.log(preReqObj)
+    //  console.log(courseOb)
 
 
+    //check to see if any of the prereqs are not listed in the course obj. make that prereq
+    //the number one course 
   for (var i in preReqObj){
       if(!courseOb.hasOwnProperty(i)){
         list.push(i)
@@ -74,20 +76,41 @@ function findCourse(arr){
         
       }
   }
-    while(iterator<(arr.length * (arr[0].length * arr.length))){
+
+  
+//   while(iterator<(arr[0].length * arr.length)){
+//    arr.forEach((course)=>{
+//        let preReq=course[0]
+//        let singleCourse=course[1]
+//         if(preReq===temp){
+//           list.push(singleCourse)
+//           temp=singleCourse
+//         }
+//    })
+//    iterator++
+// }
+
+
+
+   let length=arr.length
+    while(length > 0){
         for(let i in arr){
-            if(arr[i][0]==temp){
+            if(arr[i][0]===temp){
                 list.push(arr[i][1])
                 temp=arr[i][1]
             }
-        iterator++
     }
-}
+    length--
+}       
+
      
-    let middleIndex=list.length/2
+ let middleIndex= list.length % 2===0 ? Math.floor(list.length/2)-1 : Math.floor(list.length/2)
 
- //return  list[Math.floor(middleIndex)] 
+
+ console.log(Object.values(courseOb))
+ return  list[middleIndex] 
 
 }
 
-console.log(findCourse(prereqs_course4))
+
+console.log(findCourse(prereqs_courses1))

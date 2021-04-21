@@ -12,11 +12,11 @@ function reverseString(str){
 
 
 //method 3 decreasing array
-// let revString=""
-// for(let i=str.length-1; i>=0; i--){
-//    revString=revString + str[i]
-// }
-// return revString;
+let revString=""
+for(let i=str.length-1; i>=0; i--){
+   revString=revString + str[i]
+}
+return revString;
 
 
 //method 4 increasing array
@@ -46,6 +46,8 @@ function reverseString(str){
 
 
 }
+
+console.log(reverseString("pizza"))
 
 
 //validate a palindrome 
